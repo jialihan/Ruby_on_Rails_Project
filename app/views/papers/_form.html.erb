@@ -1,0 +1,46 @@
+<%= form_for([current_author, @paper]) do |f| %>
+  <% if @paper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
+
+      <ul>
+      <% @paper.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+      <%= f.label :file %><br>
+      <%= f.file_field :file%>
+  </div>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_file %>
+      Remove File
+    </label>
+  </p>
+
+  <div class="field">
+      <%= f.label :demo %><br>
+      <%= f.file_field :demo %>
+  </div>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_demo %>
+      Remove Demo
+    </label>
+  </p>
+
+  <div class="actions">
+    <%= f.submit 'Create Paper', class: 'btn btn-primary' %>
+  </div>
+<% end %>

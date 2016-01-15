@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @question.content %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @question.tag %>
+</p>
+
+<p>
+  <b>Answer Text:</b>
+  <%= @question.answertext %>
+</p>
+
+
+<%= link_to 'Back', paper_userpapershow_path(@paper) %>

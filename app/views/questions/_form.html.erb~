@@ -1,0 +1,68 @@
+<%= form_for([Paper.find(params[:paper_id]), @question]) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<style type="text/css">
+#wrap {
+   width:100%;
+   height: 100%;
+   margin:0 auto;
+}
+#left_col {
+   float:left;
+   width:45%;
+   height:100%;
+   border: 10px solid #66CCFf;
+}
+#right_col {
+   float:right;
+   width:45%;
+   height:100%;
+   border: 10px solid #66CCFF;
+}
+</style>
+
+<div id="wrap">
+    <div id="left_col">
+         <h3>Please add your question:</h3>
+         <div class="field">
+         </div>
+         <div class="field">
+         <%= f.label :content %><br />
+         <%= f.text_area :content %>
+         </div> 
+         <div class="actions" style="">
+         <%= f.submit "Create Question", :class => 'btn btn-lg btn-primary' %>
+         </div>
+         <br />
+         <%= link_to 'Back', paper_questions_path(@paper),:class => 'btn btn-lg btn-primary'%>
+    </div>
+     <div id="right_col">
+        <h3>Please upload your anwser image:</h3> <br />
+         <%= f.file_field :image %><br />            
+          <div class ="field" style="float: center"><br />              
+             <%= f.label :remote_image_url %><br />
+             <%= f.text_field :remote_image_url %>
+        </div> 
+        <div class="field">
+        <%= f.label :answertext %><br />
+        <%= f.text_area :answertext %>
+        </div>
+         <div class="field">
+         <%= f.label :tag %><br />
+         <%= f.text_field :tag %> 
+       </div>
+    </div>
+
+</div>
+
+ <% end %>

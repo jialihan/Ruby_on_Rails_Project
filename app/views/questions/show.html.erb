@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @question.content %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @question.tag %>
+</p>
+
+<p>
+   <b> Answer file:</b> <br />
+<%= image_tag @question.image_url(:thumb) if @question.image? %>
+</p>
+
+<p>
+  <b>Anwser Text:</b>
+  <%= @question.answertext %>
+</p>
+
+
+<%= link_to 'Edit', edit_paper_question_path(@paper, @question), :class => 'btn btn-lg btn-primary' %> |
+<%= link_to 'Back', author_paper_path(current_author, @paper), :class => 'btn btn-lg btn-primary' %>

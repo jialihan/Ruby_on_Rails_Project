@@ -1,0 +1,25 @@
+<div class="center jumbotron">
+<h1>Papers List</h1>
+
+<%= image_tag "sciencelogo.jpg", :class=>"center img-responsive"%>
+
+<table class="center table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th></th>
+  </tr>
+
+
+<% @papers.each do |paper| %>
+  <tr>
+    <td><i><%= paper.title %></i></td>
+    <td><%= paper.author.name %></td>
+    <td><%= link_to 'Show', paper_userpapershow_path(paper), :class => "btn btn-primary btn-small" %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+</div>
